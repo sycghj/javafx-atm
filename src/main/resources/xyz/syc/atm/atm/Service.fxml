@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXButton?>
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.syc.atm.atm.ServiceController" stylesheets="@Service.css">
+    <ImageView>
+        <Image url="@bg.jpeg"/>
+    </ImageView>
+
+    <AnchorPane prefHeight="400.0" prefWidth="600.0">
+        <Label fx:id="welcome" layoutX="150.0" layoutY="130.0">
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Label>
+        <Label fx:id="money" layoutX="300.0" layoutY="250.0">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+        <JFXButton onAction="#onClickQuery" text="查询余额" fx:id="querybutton" layoutY="250.0" prefHeight="50" prefWidth="125"/>
+        <JFXButton onAction="#onClickChange" text="修改密码" fx:id="changebutton" layoutY="400.0" prefHeight="50" prefWidth="125"/>
+        <JFXButton onAction="#onClickSave" text="存款" fx:id="savebutton" layoutX="680.0" layoutY="400.0" prefHeight="50" prefWidth="125"/>
+        <JFXButton onAction="#onClickWithdraw" text="取款" fx:id="withdrawbutton" layoutX="680.0" layoutY="250.0" prefHeight="50" prefWidth="125"/>
+    </AnchorPane>
+</AnchorPane>

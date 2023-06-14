@@ -1,0 +1,14 @@
+#anchor-pane1 {
+    -fx-background-color: #FFFFFF;
+}
+#loginButton{
+    -fx-background-color: #43bb73;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16;
+}
+#wrningnum{
+    -fx-text-fill: red;
+}
+#wrningpasswd{
+    -fx-text-fill: red;
+}

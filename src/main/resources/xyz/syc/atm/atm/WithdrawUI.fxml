@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="xyz.syc.atm.atm.WithdrawUIController"
+            prefHeight="200.0" prefWidth="300.0" stylesheets="@SaveUI.css">
+    <Label fx:id="tips" layoutX="90" layoutY="30">请输入取款金额：</Label>
+    <TextField fx:id="intextfield" layoutX="70" layoutY="60"/>
+    <Label fx:id="tips2" layoutX="90" layoutY="90">请输入100的倍数！</Label>
+    <JFXButton fx:id="jfxbutton" onAction="#onClick" layoutX="110" layoutY="130" prefWidth="80" prefHeight="35">确定</JFXButton>
+</AnchorPane>

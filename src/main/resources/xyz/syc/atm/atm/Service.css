@@ -1,0 +1,27 @@
+#querybutton{
+    -fx-background-color: #CCCCCC;
+}
+#changebutton{
+    -fx-background-color: #CCCCCC;
+}
+#savebutton{
+    -fx-background-color: #CCCCCC;
+}
+#withdrawbutton{
+    -fx-background-color: #CCCCCC;
+}
+#querybutton:hover{
+    -fx-background-color: #B0B0B0;
+}
+#changebutton:hover{
+    -fx-background-color: #B0B0B0;
+}
+#savebutton:hover{
+    -fx-background-color: #B0B0B0;
+}
+#withdrawbutton:hover{
+    -fx-background-color: #B0B0B0;
+}
+.jfx-button{
+    -fx-font-size: 18;
+}
