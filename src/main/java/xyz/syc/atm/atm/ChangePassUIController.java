@@ -1,8 +1,11 @@
 package xyz.syc.atm.atm;
 
+import com.jfoenix.controls.JFXDialog;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 public class ChangePassUIController implements ControlledStage {
 
@@ -12,9 +15,17 @@ public class ChangePassUIController implements ControlledStage {
     public TextField newpasswd;
     @FXML
     public TextField confirmpasswd;
-    @FXML
-    public Label warning;
+
     StageController myController;
+    ShowWarningMessage showWarningMessage;
+    @FXML
+    private Label header;
+    @FXML
+    private Label body;
+    @FXML
+    private AnchorPane context;
+    @FXML
+    private JFXDialog dialog;
 
     @Override
     public void setStageController(StageController stageController) {
@@ -22,6 +33,15 @@ public class ChangePassUIController implements ControlledStage {
     }
 
     public void onClick() {
+        if (showWarningMessage == null) {
+            initShowWarningMessage();
+        }
+        if (oldpasswd.getText().isEmpty() || newpasswd.getText().isEmpty() || confirmpasswd.getText().isEmpty()) {
+            showWarningMessage.setMessage("警告！",
+                    "输入不能为空！", 2);
+            showWarningMessage.alert();
+            return;
+        }
         String temp = newpasswd.getText();
         if (DataModel.getPasswd().equals(oldpasswd.getText())) {
             char t = temp.charAt(0);
@@ -32,18 +52,39 @@ public class ChangePassUIController implements ControlledStage {
                 }
             }
             if (count == temp.length()) {
-                warning.setText("密码不能为重复数字！");
+                showWarningMessage.setMessage("警告！",
+                        "密码不能为重复数字！", 2);
+                showWarningMessage.alert();
                 return;
             }
             if (newpasswd.getText().equals(confirmpasswd.getText())) {
                 Dao.updatePasswd(newpasswd.getText());
                 DataModel.setPasswd(newpasswd.getText());
-                warning.setText("密码修改成功！");
+                showWarningMessage.setMessage("成功！",
+                        "密码修改成功！", 1);
+                showWarningMessage.alert();
             } else {
-                warning.setText("两次输入的密码不一致！");
+                showWarningMessage.setMessage("警告！",
+                        "两次密码不一致！", 2);
+                showWarningMessage.alert();
             }
         } else {
-            warning.setText("原密码错误！");
+            showWarningMessage.setMessage("警告！",
+                    "原密码错误！", 2);
+            showWarningMessage.alert();
         }
+    }
+
+    public void initShowWarningMessage() {
+        showWarningMessage = new ShowWarningMessage(context, dialog, header, body);
+
+    }
+
+
+    public void close(ActionEvent actionEvent) {
+        if (showWarningMessage == null) {
+            initShowWarningMessage();
+        }
+        showWarningMessage.close();
     }
 }

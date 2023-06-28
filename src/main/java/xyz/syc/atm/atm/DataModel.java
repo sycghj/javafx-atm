@@ -11,20 +11,20 @@ public class DataModel {
         return money;
     }
 
-    public static String getNum() {
-        return num;
-    }
-
-    public static String getPasswd() {
-        return passwd;
-    }
-
     public static void setMoney(int money) {
         DataModel.money = money;
     }
 
+    public static String getNum() {
+        return num;
+    }
+
     public static void setNum(String num) {
         DataModel.num = num;
+    }
+
+    public static String getPasswd() {
+        return passwd;
     }
 
     public static void setPasswd(String passwd) {

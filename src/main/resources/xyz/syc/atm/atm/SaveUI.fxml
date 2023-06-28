@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import com.jfoenix.controls.JFXButton?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
             fx:controller="xyz.syc.atm.atm.SaveUIController"
-            prefHeight="200.0" prefWidth="300.0" stylesheets="@SaveUI.css">
-    <Label fx:id="tips" layoutX="90" layoutY="30">请输入存款金额：</Label>
-    <TextField fx:id="intextfield" layoutX="70" layoutY="60"/>
-    <Label fx:id="tips2" layoutX="90" layoutY="90">请输入100的倍数！</Label>
-    <JFXButton fx:id="jfxbutton" onAction="#onClick" layoutX="110" layoutY="130" prefWidth="80" prefHeight="35">确定</JFXButton>
+            prefHeight="200.0" prefWidth="300.0" maxWidth="300.0" maxHeight="200.0" stylesheets="@SaveUI.css"
+            fx:id="context">
+    <StackPane fx:id="root">
+    </StackPane>
+    <Label layoutX="90" layoutY="30">请输入存款金额：</Label>
+    <CustomTextField promptText="请输入存款金额" fx:id="intextfield" layoutX="70" layoutY="60"/>
+    <Label layoutX="90" layoutY="90">请输入100的倍数！</Label>
+    <JFXButton onAction="#onClick" layoutX="110" layoutY="130" prefWidth="80" prefHeight="35">确定
+    </JFXButton>
+    <JFXDialog fx:id="dialog" prefWidth="150.0">
+        <JFXDialogLayout>
+            <heading>
+                <Label fx:id="header"/>
+            </heading>
+            <body>
+                <Label fx:id="body"/>
+            </body>
+            <actions>
+                <JFXButton fx:id="acceptButton" prefWidth="60" prefHeight="30" style="-fx-background-color: #DDA0DD;"
+                           text="确 定" onAction="#close"/>
+            </actions>
+        </JFXDialogLayout>
+    </JFXDialog>
 </AnchorPane>

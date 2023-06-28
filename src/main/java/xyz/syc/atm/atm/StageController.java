@@ -104,7 +104,7 @@ public class StageController {
      *
      * @param show  需要显示的窗口
      * @param close 需要删除的窗口
-     * @return
+     * @return 是否成功
      */
     public boolean setStage(String show, String close) {
         getStage(close).close();

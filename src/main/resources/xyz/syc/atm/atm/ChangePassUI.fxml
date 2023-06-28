@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import com.jfoenix.controls.JFXButton?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
             fx:controller="xyz.syc.atm.atm.ChangePassUIController"
-            prefHeight="300.0" prefWidth="300.0" stylesheets="@ChangePassUI.css">
+            prefHeight="300.0" prefWidth="300.0" stylesheets="@ChangePassUI.css" fx:id="context">
+    <StackPane fx:id="root">
+    </StackPane>
     <Label layoutX="40" layoutY="80">原密码：</Label>
     <TextField fx:id="oldpasswd" layoutX="100" layoutY="80"/>
     <Label layoutX="40" layoutY="120">新密码：</Label>
     <TextField fx:id="newpasswd" layoutX="100" layoutY="120"/>
     <Label layoutX="40" layoutY="160">确认密码：</Label>
     <TextField fx:id="confirmpasswd" layoutX="100" layoutY="160"/>
-    <Label fx:id="warning" layoutX="150" layoutY="200"></Label>
-    <JFXButton fx:id="jfxbutton" onAction="#onClick" layoutX="110" layoutY="230" prefWidth="80" prefHeight="35">确定</JFXButton>
+    <JFXButton fx:id="jfxbutton" onAction="#onClick" layoutX="110" layoutY="230" prefWidth="80" prefHeight="35">确定
+    </JFXButton>
+    <JFXDialog fx:id="dialog" prefWidth="150.0">
+        <JFXDialogLayout>
+            <heading>
+                <Label fx:id="header"/>
+            </heading>
+            <body>
+                <Label fx:id="body"/>
+            </body>
+            <actions>
+                <JFXButton fx:id="acceptButton" prefWidth="60" prefHeight="30" style="-fx-background-color: #DDA0DD;"
+                           text="确 定" onAction="#close"/>
+            </actions>
+        </JFXDialogLayout>
+    </JFXDialog>
 </AnchorPane>

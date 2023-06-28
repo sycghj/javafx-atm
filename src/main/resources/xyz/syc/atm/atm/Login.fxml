@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0"
-            prefWidth="310.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="xyz.syc.atm.atm.LoginController" stylesheets="@Login.css"
-            fx:id="anchorpane1">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="467.0" prefWidth="310.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="xyz.syc.atm.atm.LoginController"
+            stylesheets="@Login.css"
+>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0"
-                prefWidth="310.0" fx:id="anchorpane11">
-                <ImageView fx:id="atm" fitHeight="107.0" fitWidth="140.0" layoutX="102.0" layoutY="69.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <Image url="@Atm-3.png"/>
-                </ImageView>
+                prefWidth="310.0" fx:id="context">
+        <StackPane fx:id="root">
+        </StackPane>
+        <ImageView fitHeight="107.0" fitWidth="140.0" layoutX="102.0" layoutY="69.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <Image url="@Atm-3.png"/>
+        </ImageView>
         <AnchorPane layoutY="222.0" prefHeight="50.0" prefWidth="310.0"
                     style="-fx-border-radius: 2;">
             <Label text="银行卡号：" layoutX="10.0" layoutY="10.0">
@@ -27,7 +32,7 @@
             <TextField layoutX="80.0" prefHeight="40.0" prefWidth="220.0" fx:id="numTextField"/>
 
         </AnchorPane>
-        <Label text="" layoutX="80.0" layoutY="265.0" fx:id="wrningnum">
+        <Label layoutX="80.0" layoutY="265.0" fx:id="wrningnum">
             <font>
                 <Font size="14.0"/>
             </font>
@@ -41,7 +46,7 @@
             </Label>
             <PasswordField layoutX="80.0" prefHeight="40.0" prefWidth="220.0" fx:id="passwordField"/>
         </AnchorPane>
-        <Label text="" layoutX="80.0" layoutY="340.0" fx:id="wrningpasswd">
+        <Label layoutX="80.0" layoutY="340.0" fx:id="wrningpasswd">
             <font>
                 <Font size="14.0"/>
             </font>
@@ -53,6 +58,22 @@
         </Label>
 
 
-        <JFXButton text="登录" layoutY="419.0" prefHeight="49.0" prefWidth="310.0" fx:id="loginButton" onAction="#onLoginClick"/>
+        <JFXButton text="登录" layoutY="419.0" prefHeight="49.0" prefWidth="310.0" fx:id="loginButton"
+                   onAction="#onLoginClick"/>
+        <JFXDialog fx:id="dialog" prefWidth="150.0">
+            <JFXDialogLayout>
+                <heading>
+                    <Label fx:id="header">JFoenix 弹窗标题</Label>
+                </heading>
+                <body>
+                    <Label fx:id="body"/>
+                </body>
+                <actions>
+                    <JFXButton fx:id="acceptButton" prefWidth="60" prefHeight="30"
+                               style="-fx-background-color: #DDA0DD;"
+                               text="确 定" onAction="#close"/>
+                </actions>
+            </JFXDialogLayout>
+        </JFXDialog>
     </AnchorPane>
 </AnchorPane>

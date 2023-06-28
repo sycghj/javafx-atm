@@ -1,9 +1,11 @@
-label{
+label {
     -fx-font-size: 16;
 }
+
 #warning {
     -fx-text-fill: red;
 }
-.jfx-button{
+
+.jfx-button {
     -fx-background-color: #B0B0B0;
 }
